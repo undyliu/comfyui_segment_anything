@@ -321,7 +321,8 @@ class GroundingDinoSAMSegment:
                 threshold
             )
             if boxes.shape[0] == 0:
-                break
+                boxes = torch.zeros(1, 4)
+                #break
             (images, masks) = sam_segment(
                 sam_model,
                 item,
